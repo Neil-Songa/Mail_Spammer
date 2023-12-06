@@ -1,7 +1,7 @@
 import pandas as pd
 import smtplib
 
-df = pd.read_excel('Trail.xlsx')
+df = pd.read_excel('HR_Mail_IDS.xlsx')
 
 for index, row in df.iterrows():
     email = row['Email']
