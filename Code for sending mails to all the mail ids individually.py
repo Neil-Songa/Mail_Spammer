@@ -3,9 +3,6 @@ import smtplib
 
 df = pd.read_excel('Trail.xlsx')
 
-# Replace 'email' with the column name containing the email addresses
-# Replace 'subject' with the subject of the email
-# Replace 'body' with the body of the email
 for index, row in df.iterrows():
     email = row['Email']
     gender = row['P']
@@ -48,18 +45,13 @@ Neil Songa
     sender_email = 'neilpratap2016@gmail.com'
     sender_password = 'cipl isxr yrug pxvk'
     
-    # Set up the SMTP server
     smtp_server = 'smtp.gmail.com'
     port = 587
     server = smtplib.SMTP(smtp_server, port)
     server.starttls()
     server.login(sender_email, sender_password)
     
-    # Create the email message
     message = f'Subject: {subject}\n\n{body}'
-    
-    # Send the email
     server.sendmail(sender_email, email, message)
     
-    # Close the SMTP server
     server.quit()
